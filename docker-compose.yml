@@ -1,0 +1,23 @@
+version: "3"
+services:
+  db:
+    image: postgres:12.4-alpine
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - db-data:/var/lib/postgresql/data/
+  app:
+    build:
+      context: .
+    volumes:
+      - .:/myapp
+    ports:
+      - 3000:3000
+    command: sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -b 0.0.0.0 -p 3000"
+    depends_on:
+      - db
+
+volumes:
+  db-data:
