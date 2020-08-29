@@ -1,4 +1,4 @@
 class ReadingLogsController < ApplicationController
-  def logs
+  def index
   end
 end
