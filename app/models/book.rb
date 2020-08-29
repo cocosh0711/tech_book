@@ -31,7 +31,7 @@ class Book < ApplicationRecord
 
 
   def estimate_time 
-    average_time = (reading_logs.sum(:duration) / (reading_logs.sum(:last_page) - reading_logs.sum(:first_page))
+    average_time = reading_logs.sum(:duration) / (reading_logs.sum(:last_page) - reading_logs.sum(:first_page))
     average_time * number_of_remain_pages
   end
 
