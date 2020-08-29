@@ -1,1 +1,1 @@
-json.array! @book, :id, :title, :total_pages, :current_page
+json.extract! @book, :id, :title, :total_pages, :current_page
