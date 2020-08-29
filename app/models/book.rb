@@ -17,4 +17,15 @@ class Book < ApplicationRecord
     reading_logs.sum(:duration)
   end
 
+  def remain_pages
+    read_counts = [0] * total_pages
+    reading_logs.each do |reading_log|
+      ((reading_log.first_page)..(reading_log.last_page)).each do |i|
+        read_counts[i-1] += 1
+      end
+    end
+    result = []
+    read_counts.each_with_index { |read_count, i| result << i + 1 if read_count.zero? }
+    result
+  end
 end
