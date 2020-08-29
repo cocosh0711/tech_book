@@ -19,7 +19,7 @@ class Book < ApplicationRecord
 
   def remain_pages
     read_counts = [0] * total_pages
-    reading_logs.each do |reading_log|
+    reading_logs.each do |reading_log|　
       ((reading_log.first_page)..(reading_log.last_page)).each do |i|
         read_counts[i-1] += 1
       end
@@ -28,4 +28,15 @@ class Book < ApplicationRecord
     read_counts.each_with_index { |read_count, i| result << i + 1 if read_count.zero? }
     result
   end
+
+
+  def estimate_time 
+    average_time = (reading_logs.sum(:duration) / (reading_logs.sum(:last_page) - reading_logs.sum(:first_page))
+    average_time * number_of_remain_pages
+  end
+
+  def number_of_remain_pages
+    remain_pages.length
+  end
+
 end
