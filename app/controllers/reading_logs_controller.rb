@@ -1,7 +1,8 @@
 class ReadingLogsController < ApplicationController
 
   def index
-    @reading_logs = ReadingLog.all
+    @book = Book.find(params[:book_id])
+    @reading_logs = @book.reading_logs
   end
 
   def create
