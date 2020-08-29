@@ -18,4 +18,22 @@ class MemosController < ApplicationController
   end
 
 
+  def update
+    @memo = Memo.find(params[:id])
+    @memo.content = params[:content]
+    @memo.page = params[:page]
+
+    if @memo.save
+      render json: @memo, status: :no_content
+    else
+      render json: @memo.errors, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @memo = Memo.find(params[:id])
+    @memo.destroy
+    render json: @memo, status: :no_content
+  end
+
 end
