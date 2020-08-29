@@ -2,7 +2,6 @@ class ReadingLogsController < ApplicationController
 
   def index
     @reading_logs = ReadingLog.all
-    render json: @reading_logs
   end
 
   def create
@@ -18,5 +17,5 @@ class ReadingLogsController < ApplicationController
       render json: @reading_logs.errors, status: :unprocessable_entity
     end
   end
-  
+
 end
