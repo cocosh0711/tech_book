@@ -1,6 +1,6 @@
-class CreateLogs < ActiveRecord::Migration[6.0]
+class CreateReadingLogs < ActiveRecord::Migration[6.0]
   def change
-    create_table :logs do |t|
+    create_table :reading_logs do |t|
       t.bigint :book_id
       t.integer :first_page
       t.integer :last_page

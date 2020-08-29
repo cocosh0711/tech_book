@@ -22,19 +22,19 @@ ActiveRecord::Schema.define(version: 2020_08_29_024055) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "logs", force: :cascade do |t|
-    t.bigint "book_id"
-    t.integer "first_page"
-    t.integer "last_page"
-    t.integer "duration"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "memos", force: :cascade do |t|
     t.bigint "book_id"
     t.text "content"
     t.integer "page"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reading_logs", force: :cascade do |t|
+    t.bigint "book_id"
+    t.integer "first_page"
+    t.integer "last_page"
+    t.integer "duration"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
