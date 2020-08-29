@@ -1,6 +1,6 @@
 class MemosController < ApplicationController
   def index
-    book = book.find(params[:book_id])
+    book = Book.find(params[:book_id])
     @memos = book.memos
   end
 
