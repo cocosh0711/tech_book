@@ -11,6 +11,10 @@ class Book < ApplicationRecord
     else
       0
     end
-
   end
+
+  def total_duration
+    reading_logs.sum(:duration)
+  end
+
 end
