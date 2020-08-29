@@ -1,1 +1,1 @@
-json.array! @book, :content, :page
+json.array! @memo, :content, :page
