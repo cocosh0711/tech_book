@@ -1,7 +1,7 @@
 class MemosController < ApplicationController
   def index
     book = Book.find(params[:book_id])
-    @memos = book.memos.order(page: :desc)
+    @memos = book.memos.order(page: :asc)
   end
 
   def create
