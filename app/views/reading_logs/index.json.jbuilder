@@ -1,5 +1,5 @@
 json.book do
-  json.extract! @book, :total_duration, :remain_pages, :estimate_time, :number_of_remain_pages
+  json.extract! @book, :total_pages, :current_page :total_duration, :remain_pages, :estimate_time, :number_of_remain_pages
 end
 
 json.reading_logs do
