@@ -2,7 +2,7 @@ class Book < ApplicationRecord
   has_many :memos
   has_many :reading_logs
   validates :title, presence: true
-  validates :total_pages, presence: true
+  validates :total_pages, {presence: true, length: {maximum: 1000, minimum: 1}}
 
   def current_page
     last_log = reading_logs.last
